@@ -18,6 +18,15 @@ public class AppBanco {
 
         System.out.println(Thread.currentThread().getName());
 
+        try {
+            saqueJoao.join();
+            saqueMaria.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Saldo final: " + conta.getSaldo());
+
 //        //Saque João
 //        operacao.executa();
 //        //Saque Maria
